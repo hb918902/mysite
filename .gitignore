@@ -7,3 +7,4 @@ dist
 build
 workspace.xml
 .idea/
+__pycache__
