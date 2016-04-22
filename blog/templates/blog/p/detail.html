@@ -1,11 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>ARTICLE</title>
-</head>
-<body>
-<h1>{{ article.title }}</h1>
-<p>{{ article.content }}</p>
-</body>
-</html>
+{% extends "blog/base.html" %}
+    {% block context %}
+			<h1>{{ article.title }}</h1>
+            <p>{{ article.content }}</p>
+    {% endblock context %}
