@@ -5,8 +5,15 @@
         {% if articles %}
         {% for article in articles.object_list %}
         <li class="list-group-item">
+            <h3>
             <a href="{% url 'blog:detail' article.id %}" >
-                {{ article.title }} </a>
+                {{ article.title }} <br /></a>
+            </h3>
+                <!--显示摘要-->
+                {{ article.content|truncatechars_html:100 }}
+                <!--ending 摘要-->
+            <a href="{% url 'blog:detail' article.id %}" >
+                阅读全文</a>
             <br />
             {{ article.author }}
         {% endfor %}
