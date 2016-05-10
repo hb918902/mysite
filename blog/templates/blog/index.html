@@ -1,6 +1,12 @@
 {% extends "blog/base.html" %}
     {% block context %}
 <!--内容-->
+    {% if is_category %}
+    “{{ cate_name|safe }}”分类中共有{{ article_list|length}}篇：
+    {% endif %}
+
+
+
     <div class="list-group">
         {% if articles %}
         {% for article in articles.object_list %}

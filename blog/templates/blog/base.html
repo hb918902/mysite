@@ -29,7 +29,7 @@
 		<div class="span6">
 			<ul class="nav nav-tabs">
 				<li class="active">
-					<a href="#">首页</a>
+					<a href="/blog">首页</a>
 				</li>
 				<li>
 					<a href="#">资料</a>
@@ -42,8 +42,51 @@
 
 			{% endblock context %}
 		</div>
-		<div class="span4">
+
+
+		<div class="span3">
+		        <ul class="user">
+						{% if user.is_authenticated %}
+							欢迎：{{ user.username }}
+							&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+							<a href="/blog/logout">退出</a>
+						{% else %}
+							<a href="/blog/register" ">注册</a>
+                        	<a href="/blog/login">登录</a>
+                        {% endif %}
+				</ul>
+				</br>
+
+
+             <form action="" method="post">{% csrf_token %}
+			 <div class="input">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <input type = 'submit' placeholder="Login" value="GO">
+             </div>
+             </br>
+             </form>
+
+
+
+			<div class="list-group">
+                <a class="list-group-item active">
+                文章分类
+                </a>
+                {% if categories %}
+                {% for c in categories %}
+                <li class="list-group-item">
+                <a href="{% url 'blog:category' c.id %}">{{ c.name }}</a>
+                </li>
+                {% endfor %}
+                {% endif %}
+            </div>
+
+
 		</div>
+
+		<div class="span1">
+	    </div>
+
 	</div>
 </div>
 </body>
