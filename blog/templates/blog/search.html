@@ -1,0 +1,11 @@
+{% block search %}
+<div>
+<form action="" method="post">{% csrf_token %}
+			 <div class="input">
+                <input type="text" class="form-control" placeholder="Search for...">
+                <input type = 'submit' placeholder="Login" value="GO">
+             </div>
+</form>
+</div>
+
+{% endblock search %}

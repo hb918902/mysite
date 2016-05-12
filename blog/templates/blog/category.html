@@ -1,0 +1,17 @@
+{% block category %}
+
+<div class="list-group">
+                <a class="list-group-item active">
+                文章分类
+                </a>
+                {% if categories %}
+                {% for c in categories %}
+                <li class="list-group-item">
+                <a href="{% url 'blog:category' c.id %}">{{ c.name }}</a>
+                </li>
+                {% endfor %}
+                {% endif %}
+</div>
+
+
+{% endblock category %}

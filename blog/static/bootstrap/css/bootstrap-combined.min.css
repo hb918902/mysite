@@ -7433,3 +7433,13 @@ button.close {
 #SM {width:768px;}
 #XS {width:480px;}
 #LG {width:100%}
+
+#sideBar {
+width: 290px;
+margin-left: 20px;
+float: left;
+-o-text-overflow: ellipsis;
+text-overflow: ellipsis;
+overflow: visible;
+word-break: break-all;
+}
