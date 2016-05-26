@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
 
+from django.views.generic.dates import MonthArchiveView
+
 from .models import Article, Category
 
 # Create your views here.
@@ -156,4 +158,9 @@ def category(request, pk):
     "cate_name": cate.name,
     "categories": Category.objects.all()})
 
+
+class ArticleMonthArchiveView(MonthArchiveView):
+    queryset = Article.objects.all()
+    date_field = "cre_date"
+    allow_future = True
 

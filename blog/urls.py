@@ -9,4 +9,16 @@ urlpatterns = [
     url(r'^login/$',views.my_login, name='my_login'),
     url(r'^logout/$',views.my_logout, name='my_logout'),
     url(r'^category/(?P<pk>[0-9]+)/$', views.category, name="category"),
+
+    # Example: /2012/08/
+    url(r'^(?P<year>[0-9]{4})/(?P<month>[0-9]+)/$',
+        views.ArticleMonthArchiveView.as_view(month_format='%m'),
+        name="archive_month_numeric"),
+
+
+
+
+
+
+
 ]
