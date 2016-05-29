@@ -61,17 +61,22 @@
 
 
             {% block search %}
-            {% include "blog/search.html" %}
+            {% include "blog/side/search.html" %}
             {% endblock %}
 
 
             {% block calender %}
-            {% include "blog/calender.html" %}
+            {% include "blog/side/calender.html" %}
             {% endblock %}
 
 
             {% block category %}
-            {% include "blog/category.html" %}
+            {% include "blog/side/category.html" %}
+            {% endblock %}
+
+
+            {% block month %}
+            {% include "blog/side/month.html" %}
             {% endblock %}
 
 

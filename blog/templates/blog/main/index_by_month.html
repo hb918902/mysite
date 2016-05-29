@@ -1,0 +1,65 @@
+{% extends "blog/base.html" %}
+    {% block context %}
+<!--内容-->
+
+    <div class="list-group">
+        {% for article in object_list %}
+        <li class="list-group-item">
+            <h3>
+            <a href="{% url 'blog:detail' article.id %}" >
+                {{ article.title }} <br /></a>
+            </h3>
+                <!--显示摘要-->
+                {{ article.content|truncatechars_html:100 }}
+                <!--ending 摘要-->
+            <a href="{% url 'blog:detail' article.id %}" >
+                阅读全文</a>
+            <br />
+            {{ article.author }}
+        {% endfor %}
+
+        </li>
+    </div>
+<!--ending 内容 -->
+
+<!--分页-->
+<nav>
+  <div class="pagination pagination-right">
+    <ul >
+    <li>
+        {% if page_obj.has_previous %}
+            <a href="?page={{ page_obj.previous_page_number }}" class="active">&laquo;</a>
+        {% else %}
+            <a href="" >&laquo;</a>
+        {% endif %}
+    </li>
+
+    <li>
+        {% for i in page_obj.paginator.page_range %}
+            <li {% if page_obj.number == i %}class="active"{% endif %}>
+                <a  href="?page={{ i }}">{{ i }}
+
+                </a>
+        </li>
+        {% endfor %}
+    </li>
+
+    <li>
+        {% if page_obj.has_next %}
+            <a href="?page={{ page_obj.next_page_number }}" >&raquo;</a>
+        {% else %}
+            <a href="" >&raquo;</a>
+        {% endif %}
+    </li>
+
+    <li>
+        共{{ page_obj.paginator.num_pages }}页
+    </li>
+    </ul>
+    </div>
+</nav>
+<!--ending 分页-->
+
+
+
+    {% endblock context %}
