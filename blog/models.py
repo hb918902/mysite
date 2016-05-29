@@ -16,7 +16,7 @@ class Article(models.Model):
     title = models.CharField(max_length=100)
     author = models.ForeignKey(User)
     content = models.TextField()
-    tags = models.ForeignKey(Category, blank=True, null=True)
+    category = models.ForeignKey(Category, blank=True, null=True)
     cre_date = models.DateTimeField()
     update = models.DateTimeField()
 
