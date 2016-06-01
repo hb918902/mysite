@@ -1,9 +1,10 @@
 {% extends "blog/base.html" %}
+{% load custom_markdown %}
     {% block context %}
 
 
-			<h1>{{ article.title }}</h1>
-            <p>{{ article.content }}</p>
+			<h1>{{ article.title|custom_markdown }}</h1>
+            <p>{{ article.content|custom_markdown }}</p>
 
 <!-- 多说评论框 start -->
 	<div class="ds-thread" data-thread-key="{{ article.id }}" data-title="{{ article.title }}" data-url="请替换成文章的网址"></div>

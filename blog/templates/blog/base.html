@@ -13,7 +13,12 @@
 	<link href="{% static "bootstrap/css/bootstrap-combined.min.css" %}" rel="stylesheet" media="screen" >
 	<script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"s></script>
 	<link rel="shortcut icon" href="{%  static "images/favicon.ico" %}">
+
+	<script src="{% static 'highlight/highlight.pack.js' %}"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'highlight/default.css' %}">
 </head>
+
+<script>hljs.initHighlightingOnLoad();</script>
 
 <body>
 <div class="container-fluid" id="LG">
