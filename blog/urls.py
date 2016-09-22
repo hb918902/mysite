@@ -12,5 +12,6 @@ urlpatterns = [
     url(r'^(?P<year>[0-9]{4})/(?P<month>[0-9]+)/$',
         views.ArticleMonthArchiveView.as_view(month_format='%m'),
         name="index_by_month"),
+    url(r'^ziliao/$', views.ziliao),
 
 ]

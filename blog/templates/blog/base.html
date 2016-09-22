@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 {% load staticfiles %}
-  <head>
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -29,10 +29,10 @@
 		<div class="span6">
 			<ul class="nav nav-tabs">
 				<li class="active">
-					<a href="/blog">首页</a>
+					<a href="/blog/">首页</a>
 				</li>
 				<li>
-					<a href="#">资料</a>
+					<a href="/blog/ziliao/">资料</a>
 				</li>
 				<li >
 					<a href="#">信息</a>
@@ -50,10 +50,10 @@
 						{% if user.is_authenticated %}
 							欢迎：{{ user.username }}
 							&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-							<a href="/blog/logout">退出</a>
+							<a href="/blog/logout/">退出</a>
 						{% else %}
-							<a href="/blog/register" ">注册</a>
-                        	<a href="/blog/login">登录</a>
+							<a href="/blog/register/" ">注册</a>
+                        	<a href="/blog/login/">登录</a>
                         {% endif %}
 				</ul>
 				</br>

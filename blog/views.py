@@ -7,7 +7,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponseRedirect
 
 from django.views.generic.dates import MonthArchiveView
-from django.views.generic import ListView,DetailView
+from django.views.generic import ListView, DetailView
 
 from .models import Article, Category
 
@@ -28,21 +28,25 @@ class ArticleDetailView(DetailView):
 
 
 class CategoryView(ListView):
-    template_name = 'blog/main/index_by_category.html'
+    template_name = 'blog/main/index.html'
     paginate_by = 4
     context_object_name = 'articles'
 
     def get_queryset(self):
-        self.category = get_object_or_404(Category, name=self.args[0])
-        return Article.objects.filter(category=self.category)
-
+        category = get_object_or_404(Category, name=self.args[0])
+        return Article.objects.filter(category=category)
 
 
 class ArticleMonthArchiveView(MonthArchiveView):
-    template_name = 'blog/main/index_by_month.html'
+    template_name = 'blog/main/index.html'
     queryset = Article.objects.all()
     date_field = "cre_date"
+    context_object_name = 'articles'
     paginate_by = 4
+
+
+def ziliao(request):
+    return render(request,'blog/main/ziliao.html')
 
 
 
@@ -122,7 +126,7 @@ def my_login(request):
 
 def my_logout(request):
     auth.logout(request)
-    return HttpResponseRedirect('/blog')
+    return HttpResponseRedirect('/blog/')
 
 
 
