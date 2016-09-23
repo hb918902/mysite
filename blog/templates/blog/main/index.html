@@ -27,8 +27,7 @@
 
 <!--分页-->
 <nav>
-  <div class="pagination pagination-right">
-    <ul >
+    <ul class="pagination ">
     <li>
         {% if page_obj.has_previous %}
             <a href="?page={{ page_obj.previous_page_number }}" class="active">&laquo;</a>
@@ -40,10 +39,8 @@
     <li>
         {% for i in page_obj.paginator.page_range %}
             <li {% if page_obj.number == i %}class="active"{% endif %}>
-                <a  href="?page={{ i }}">{{ i }}
-
-                </a>
-        </li>
+                <a  href="?page={{ i }}">{{ i }}</a>
+            </li>
         {% endfor %}
     </li>
 
@@ -55,11 +52,8 @@
         {% endif %}
     </li>
 
-    <li>
-        共{{ page_obj.paginator.num_pages }}页
-    </li>
+    <!--<li>共{{ page_obj.paginator.num_pages }}页</li>-->
     </ul>
-    </div>
 </nav>
 <!--ending 分页-->
 

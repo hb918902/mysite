@@ -6,46 +6,35 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>首页</title>
+    <title>MyBlog</title>
 
-    <script type="text/javascript" src="{% static "bootstrap/js/jquery-2.0.0.min.js" %}"> </script>
-	<script type="text/javascript" src="{% static "bootstrap/js/jquery-ui.js" %}"></script>
-	<link href="{% static "bootstrap/css/bootstrap-combined.min.css" %}" rel="stylesheet" media="screen" >
-	<script type="text/javascript" src="{% static "bootstrap/js/bootstrap.min.js" %}"s></script>
-	<link rel="shortcut icon" href="{%  static "images/favicon.ico" %}">
+    <!--<script type="text/javascript" src="{% static "bootstrap/js/jquery-2.0.0.min.js" %}"> </script>-->
+	<!--<script type="text/javascript" src="{% static "bootstrap/js/jquery-ui.js" %}"></script>-->
+    <script type="text/javascript" src="{% static 'bist/js/bootstrap.js' %}"s></script>
+	<link href="{% static 'bist/css/bootstrap.min.css' %}" rel="stylesheet" media="screen" >
+	<link href="{%  static 'images/favicon.ico' %}" rel="shortcut icon" >
 </head>
 
-<body>
-<div class="container-fluid" id="LG">
+<body background="{% static "images/background.png" %}">
+<div class="container-fluid" >
 	<div class="row-fluid">
-	    <img src="{% static "images/head1.png" %}" alt="返回主页">
-		<div class="span12" >
+		<div class="col-md-11 col-md-offset-1" >
+		<ul class="nav nav-pills nav-justified">
+            <li class="active"><a href="/blog/">首页</a></li>
+            <li><a href="/blog/ziliao/">资料</a></li>
+            <li><a href="#">CSS</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
 		</div>
 	</div>
 
 	<div class="row-fluid">
-	    <div class="span2">
-	    </div>
-		<div class="span6">
-			<ul class="nav nav-tabs">
-				<li class="active">
-					<a href="/blog/">首页</a>
-				</li>
-				<li>
-					<a href="/blog/ziliao/">资料</a>
-				</li>
-				<li >
-					<a href="#">信息</a>
-				</li>
-			</ul>
-			{% block context %}
-
-			{% endblock context %}
-		</div>
-
-
-		<div class="span3">
-		<div id="sideBar">
+        <div class="row">
+		    <div class="col-md-6 col-md-offset-2">
+		    	{% block context %}
+		    	{% endblock context %}
+		    </div>
+		    <div class="col-md-2">
 		        <ul class="user">
 						{% if user.is_authenticated %}
 							欢迎：{{ user.username }}
@@ -57,35 +46,24 @@
                         {% endif %}
 				</ul>
 				</br>
-
-
-
             {% block search %}
             {% include "blog/side/search.html" %}
             {% endblock %}
-
-
+                </br>
             {% block calender %}
             {% include "blog/side/calender.html" %}
             {% endblock %}
-
-
+                </br>
             {% block category %}
             {% include "blog/side/category.html" %}
             {% endblock %}
-
-
+                </br>
             {% block month %}
             {% include "blog/side/month.html" %}
             {% endblock %}
-
-
-		</div>
-
-		<div class="span1">
+            </div>
 	    </div>
     </div>
-	</div>
 </div>
 </body>
 </html>
