@@ -14,11 +14,14 @@ from .models import Article, Category
 
 # Create your views here.
 
+PAGENUM = 10
+
+
 class IndexListView(ListView):
     queryset = Article.objects.all().order_by('cre_date')
     template_name = 'blog/main/index.html'
     context_object_name = 'articles'
-    paginate_by = 4
+    paginate_by = PAGENUM
 
 
 class ArticleDetailView(DetailView):
@@ -29,7 +32,7 @@ class ArticleDetailView(DetailView):
 
 class CategoryView(ListView):
     template_name = 'blog/main/index.html'
-    paginate_by = 4
+    paginate_by = PAGENUM
     context_object_name = 'articles'
 
     def get_queryset(self):
@@ -42,7 +45,7 @@ class ArticleMonthArchiveView(MonthArchiveView):
     queryset = Article.objects.all()
     date_field = "cre_date"
     context_object_name = 'articles'
-    paginate_by = 4
+    paginate_by = PAGENUM
 
 
 def ziliao(request):

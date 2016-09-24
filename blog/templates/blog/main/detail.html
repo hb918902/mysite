@@ -1,10 +1,9 @@
 {% extends "blog/base.html" %}
     {% block context %}
-
-
+		<div class="list-group-item ">
 			<h1>{{ article.title }}</h1>
             <p>{{ article.content }}</p>
-
+		</div>
 <!-- 多说评论框 start -->
 	<!--<div class="ds-thread" data-thread-key="{{ article.id }}" data-title="{{ article.title }}" data-url="请替换成文章的网址"></div>-->
 <!--&lt;!&ndash; 多说评论框 end &ndash;&gt;-->

@@ -1,11 +1,10 @@
 {% extends "blog/base.html" %}
     {% block context %}
 <!--内容-->
-
-    <div class="list-group">
         {% if articles %}
         {% for article in articles %}
-        <li class="list-group-item">
+        <div class="list-group">
+            <li class="list-group-item">
             <h3>
             <a href="{% url 'blog:detail' article.id %}" >
                 {{ article.title }} <br /></a>
@@ -17,12 +16,12 @@
                 阅读全文</a>
             <br />
             {{ article.author }}
+            </li>
+        </div>
         {% endfor %}
         {% else %}
                 <p>No articles are available.</p>
         {% endif %}
-        </li>
-    </div>
 <!--ending 内容 -->
 
 <!--分页-->
@@ -45,7 +44,7 @@
     </li>
 
     <li>
-        {% if articles.has_next %}
+        {% if page_obj.has_next %}
             <a href="?page={{ page_obj.next_page_number }}" >&raquo;</a>
         {% else %}
             <a href="" >&raquo;</a>
